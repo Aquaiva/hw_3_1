@@ -5,57 +5,55 @@ public class Main {
     public static void main(String[] args) {
 	// write your code here
         System.out.println("Задача 1:");
-        byte clientOS = 0;
+        int clientOS = 0;
         if (clientOS == 0) {
-            System.out.println("Установите версию приложения для IOS по ссылке");
-                    } else {
+            System.out.println("Установите версию приложения для iOS по ссылке");
+        } else {
             System.out.println("Установите версию приложения для Android по ссылке");
         }
 
-
         System.out.println("Задача 2:");
-        int clientDeviceYear = 2014;
-        if (clientOS == 0) {
-            System.out.println("Установите приложение для IOS по ссылке");
-            if (clientDeviceYear < 2015) {
-                System.out.println("Пройдите по ссылке для установки облегченной версии приложения для IOS");
-            }
+        int clientDeviceYear = 2016;
+        if (clientOS == 0 && clientDeviceYear < 2015) {
+            System.out.println("Установите облегченную версию для iOS по ссылке");
+        } else if (clientOS == 0 && clientDeviceYear >= 2015) {
+            System.out.println("Установите обычную версию приложения для iOS по ссылке");
+        } else if (clientOS == 1 && clientDeviceYear < 2015) {
+            System.out.println("Установите облегченную версию приложения для Android");
         } else {
-            System.out.println("Установите приложение для Android по ссылке");
-            if (clientDeviceYear < 2015) {
-                System.out.println("Пройдите по ссылке для установки облегченной версии приложения для Android");
-            }
+            System.out.println("Установите обычную версию приложения для Android");
         }
 
-
         System.out.println("Задача 3:");
-        int year = 2100;
-        if (year >= 1584) {
-            if (year % 4 == 0) {
+        int year = 1904;
+        if ((year >= 1584) && ((year % 4 == 0 && year % 100 != 0)||(year % 400 == 0))) {
                 System.out.println("Год является високосным");
-            } else {
+        } else if (year >= 1584) {
                 System.out.println("Год не является високосным");
-            }
         } else {
             System.out.println("Год не может быть меньше 1584!");
         }
 
-
         System.out.println("Задача 4:");
-        int deliveryDistance = 100;
+        int deliveryDistance = 18;
+        int deliveryDays;
         if (deliveryDistance <= 20) {
-            System.out.println("Потребуется дней: 1");
+           deliveryDays = 1;
         }
-        if (deliveryDistance > 20 && deliveryDistance < 60) {
-            System.out.println("Потребуется дней: 2");
+        else if (deliveryDistance > 20 && deliveryDistance < 60) {
+            deliveryDays = 2;
         }
-        if (deliveryDistance >= 60 && deliveryDistance <= 100) {
-            System.out.println("Потребуется дней: 3");
+        else if (deliveryDistance >= 60 && deliveryDistance <= 100) {
+          deliveryDays = 3;
+         }
+        else {
+            deliveryDays = 0;
         }
-        if (deliveryDistance > 100) {
+        if (deliveryDays != 0) {
+            System.out.println("Потребуется дней: " + deliveryDays);
+        }else {
             System.out.println("Свыше 100 км доставки нет");
         }
-
 
         System.out.println("Задача 5:");
         byte monthNumber = 8;
